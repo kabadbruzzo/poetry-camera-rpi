@@ -3,3 +3,4 @@ smallertest.py
 __pycache__/
 errors.txt
 .env
+api_chatgpt.txt
