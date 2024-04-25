@@ -1,9 +1,11 @@
-import openai
+from openai import OpenAI
 
-open.api_key = open("../api_chatgpt.txt", "r").read().strip("\n")
+client = OpenAI(
+    api_key = open("../api_chatgpt.txt", "r").read().strip("\n")
+)
 
-visual_poet = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
+visual_poet = client.chat.completions.create(
+    model="gpt-3.5-turbo-0125",
     messages = [
         {"role": "user", "content":"Scrivi una poesia sulla luna." }
     ]
