@@ -4,3 +4,5 @@ __pycache__/
 errors.txt
 .env
 api_chatgpt.txt
+api_chatgpt_kiara.txt
+myver_tests/image.jpg
