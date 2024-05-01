@@ -14,4 +14,6 @@ for bus in busses:
 
 ## initialize printer
 p = printer.Usb(0x28e9, 0x0289, in_ep=0, out_ep=0x03) ## todo: change serial code
-p.text("Hello World \n")
+p.text("Hola skurki \n")
+p.qr("Te amo mucho, como dos a la 300esima")
+p.text("\n \n \n") 

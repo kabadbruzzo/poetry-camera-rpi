@@ -41,6 +41,3 @@ while True:
 
   elif switch10.is_pressed:
     print("switch 10 is selected")
-
-  else:
-    print("some other state")

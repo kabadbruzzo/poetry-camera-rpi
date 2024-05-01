@@ -6,7 +6,7 @@ import time, requests, signal, os
 from gpiozero import LED, Button
 
 #instantiate buttons
-shutter_button = Button(16, hold_time = 2)
+shutter_button = Button(22, hold_time = 2)
 led = LED(20)
 
 def handle_pressed():
