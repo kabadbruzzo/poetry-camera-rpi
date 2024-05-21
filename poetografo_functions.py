@@ -99,10 +99,7 @@ def print_footer(printer):
     printer.println('poetry.camera')
     printer.println('\n\n\n\n')
 
-def print_poem(poem):
-    #instantiate printer
-    baud_rate = 9600 # REPLACE WITH YOUR OWN BAUD RATE
-    printer = Adafruit_Thermal('/dev/ttyS0', baud_rate, timeout=5)
+def print_poem(poem, printer):
 
     # print for debugging
     print('--------POEM BELOW-------')
@@ -112,10 +109,6 @@ def print_poem(poem):
     # wrap text to 32 characters per line (max width of receipt printer)
     printable_poem = wrap_text(poem, 32)
 
-    print_header(printer)
-
     printer.justify('L') # left align poem text
     printer.println(printable_poem)
-
-    print_footer(printer)
 
