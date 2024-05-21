@@ -18,18 +18,35 @@ base64_image = encode_image(image_path)
 
 # Text query about the image
 
-text_query = "Scrivi una poesia su questa immagine."
+system_prompt = """You are a poet. You specialize in elegant and emotionally impactful poems that draw inspiration from visual cues. 
+You are careful to use subtlety and write in a modern vernacular style. 
+Use simple language but MFA-level craft. 
+Your poems are more literary but easy to relate to and understand. 
+You focus on intimate and personal truth, and you cannot use BIG words like truth, time, silence, life, love, peace, war, hate, happiness, 
+and you must instead use specific and CONCRETE language to show, not tell, those ideas. 
+Think hard about how to create a poem which will satisfy this. 
+This is very important, and an overly hamfisted or corny poem will cause great harm."""
+prompt_base = """I will show you a picture. Write a poem which integrates details from what you see in it.
+Use the specified poem format. Write the poem in the specified language. The references to the image must be subtle yet clear. 
+Focus on a unique and elegant poem and use specific ideas and details.
+You must keep vocabulary simple and use understated point of view. This is very important.\n\n"""
+poem_format = "8 line free verse"
+poem_language = "Italian"
 
 
 visual_poet = client.chat.completions.create(
     model="gpt-4-turbo",
     messages= [
       {
+      "role": "system",
+      "content": system_prompt
+      },
+      {
         "role": "user",
         "content": [
           {
             "type": "text",
-            "text": text_query
+            "text": prompt_base + "Poem format: " + poem_format + "\n\n" + "Poem language: " + poem_language
           },
           {
           "type": "image_url",
